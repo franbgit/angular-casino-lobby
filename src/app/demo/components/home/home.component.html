@@ -1,0 +1,33 @@
+<p (click)="getCategories()">home works!</p>
+
+<app-search></app-search>
+
+<ul>
+    <li *ngFor="let category of categories?._embedded.game_categories" (click)="getGames(category.slug)">
+        {{category.name}} - {{category.slug}}
+    </li>
+</ul>
+
+<div *ngIf="games">
+    {{'---' + games + '---'}}
+    <!-- <input [ngModel]="searchText" (ngModelChange)="updateGameList($event)"/> -->
+
+    <ul>
+        <li *ngFor="let game of filteredGameList">
+            {{game.name}}
+        </li>
+    </ul>
+</div>
+<!-- <input [ngModel]="bar" (ngModelChange)="modelChangeFn($event)">
+    <p>{{ '--'+bar+'--' }}</p>
+    <input [(ngModel)]="bar2">
+    <p>{{ '--'+bar2+'--' }}</p> -->
+
+<!-- <input type="number" [ngModel]="percent" (ngModelChange)="onPercentChange($event)" /> -->
+
+<div *ngFor="let category of categoryData">
+    {{ category.name }}
+    <a [routerLink]="category.url">
+      <img [src]="category.img" alt="image of the category">
+    </a>
+  </div>
