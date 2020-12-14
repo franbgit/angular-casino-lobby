@@ -1,2 +1,14 @@
-
-<app-categories></app-categories>
+<div [ngSwitch]="stage">
+  <div *ngSwitchCase="'show'">
+    <mat-tab-group>
+      <mat-tab *ngFor="let category of categoryData" [label]="category.name">
+        <app-single-category
+          [games]="category._embedded.games"
+        ></app-single-category>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div *ngSwitchCase="'loading'">
+    <app-spinner></app-spinner>
+  </div>
+</div>

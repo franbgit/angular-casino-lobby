@@ -1,23 +1,21 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-
-// import Swiper from 'swiper';
+import { Component, OnInit } from '@angular/core';
+import { GamesService } from '@core/services/games.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
+  categoryData = [];
+  stage = 'loading';
 
-  // mySwiper: Swiper;
+  constructor(private gamesService: GamesService) {}
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void {
+    this.gamesService.getCategories().subscribe((data) => {
+      this.categoryData = data._embedded.game_categories;
+      this.stage = 'show';
+    });
   }
-
-  ngAfterViewInit() {
-    // this.mySwiper = new Swiper('.swiper-container');
-  }
-
 }

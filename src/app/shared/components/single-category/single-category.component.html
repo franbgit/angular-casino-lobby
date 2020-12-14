@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div id="games-list" class="games-grid">
+      <app-game *ngFor="let game of games.slice(0, maxGames)" [game]="game">
+      </app-game>
+    </div>
+    <div class="buttonContainer" *ngIf="isThereMore">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="showMore()"
+        id="showMore_button"
+      >
+        Load More Games
+      </button>
+    </div>
+  </div>
+</div>

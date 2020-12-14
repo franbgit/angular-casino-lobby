@@ -1,1 +1,11 @@
-<p>footer works!</p>
+<footer>
+  <ul>
+    <li *ngFor="let link of links">
+      <a routerLink="/">{{ link }}</a>
+    </li>
+  </ul>
+  <hr />
+  <ul>
+    <img *ngFor="let image of images" [src]="'./assets/images/' + image" />
+  </ul>
+</footer>
