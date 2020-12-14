@@ -1,29 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {MatFormFieldModule} from '@angular/material/form-field'; 
-import {MatInputModule} from '@angular/material/input'; 
-import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatCardModule } from '@angular/material/card';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatAutocompleteModule,
-    MatSlideToggleModule,
     MatCardModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    MatToolbarModule,
+    MatTabsModule,
   ],
-  exports:[
-    MatFormFieldModule,
-    MatInputModule,
-    MatAutocompleteModule,
-    MatSlideToggleModule,
+  exports: [
     MatCardModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    MatToolbarModule,
+    MatTabsModule,
   ],
 })
-export class MaterialModule { }
+export class MaterialModule {}

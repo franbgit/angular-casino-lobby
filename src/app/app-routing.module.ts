@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { LayoutComponent } from './layout/layout.component';
-// import { GameDetailComponent } from './game-detail/game-detail.component';
 
 const routes: Routes = [
   {
@@ -16,28 +15,31 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+        loadChildren: () =>
+          import('./home/home.module').then((m) => m.HomeModule),
       },
       {
-        path: 'category',
-        loadChildren: () => import('./single-category/single-category.module').then(m => m.SingleCategoryModule)
+        path: 'search',
+        loadChildren: () =>
+          import('./search/search.module').then((m) => m.SearchModule),
       },
       {
-        path: 'game-detail',
-        loadChildren: () => import('./game-detail/game-detail.module').then(m => m.GameDetailModule)
+        path: '**',
+        loadChildren: () =>
+          import('./page-not-found/page-not-found.module').then(
+            (m) => m.PageNotFoundModule
+          ),
       },
     ],
-  },
-  {
-    path: '**',
-    loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    preloadingStrategy: PreloadAllModules
-  })],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

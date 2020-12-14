@@ -1,0 +1,18 @@
+<div [ngSwitch]="stage">
+  <div *ngSwitchCase="'show'">
+    <input
+      id="text_input"
+      type="text"
+      placeholder="Search.."
+      [ngModel]="inputText"
+      (ngModelChange)="setValue($event)"
+      (keydown)="inputChanged()"
+    />
+    <div *ngIf="inputText">
+      <app-single-category [games]="gamesSearched"></app-single-category>
+    </div>
+  </div>
+  <div *ngSwitchCase="'loading'">
+    <app-spinner></app-spinner>
+  </div>
+</div>

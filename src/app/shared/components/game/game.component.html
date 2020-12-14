@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="ellipsis" [title]="game.name">{{
+      game.name | uppercase
+    }}</mat-card-title>
+  </mat-card-header>
+  <div class="crop-image">
+    <img [src]="game.thumbnail" alt="image" class="scale" />
+  </div>
+</mat-card>
